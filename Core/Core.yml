@@ -1,12 +1,21 @@
 targets:
-  ImageService:
+  Core:
     type: library.static
     platform: iOS
     sources:
       - path: Sources
-        name: ImageService
+        name: Core
     settings:
       INFOPLIST_FILE: ../ModuleInfo.plist
     configFiles:
       Debug: ../Configs/Module.xcconfig
       Release: ../Configs/Module.xcconfig
+  CoreTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Tests
+    settings:
+      INFOPLIST_FILE: ModuleInfo.plist
+    dependencies:
+      - target: Core
